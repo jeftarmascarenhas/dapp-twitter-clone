@@ -1,0 +1,54 @@
+.tweet {
+  padding: 16px;
+  display: flex;
+}
+
+.tweet-content {
+  margin-bottom: 10px;
+}
+
+.tweet-content > img {
+  padding: 8px 0;
+  border-radius: 16px;
+  margin-top: 5px;
+}
+
+.tweet-author-avatar {
+  width: 52px;
+  height: 52px;
+  border-radius: 52px;
+  margin-right: 12px;
+}
+
+.tweet-author {
+  display: flex;
+  align-items: center;
+
+  padding-bottom: 10px;
+}
+
+.author-name {
+  font-size: 15px;
+  font-weight: 700;
+  margin-right: 10px;
+}
+
+.author-address {
+  color: rgb(154, 154, 154);
+}
+
+.donation {
+  display: flex;
+  align-items: center;
+}
+
+.donation-item {
+  display: flex;
+  align-items: center;
+  margin-right: 2px;
+}
+
+.donation-item > span {
+  display: inline-block;
+  margin-right: 4px;
+}

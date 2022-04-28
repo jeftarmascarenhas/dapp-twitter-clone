@@ -1,0 +1,14 @@
+.preview-upload {
+  position: relative;
+}
+
+.preview-upload .close {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-weight: 400;
+}
+
+.preview-upload .image {
+  border-radius: 16px;
+}

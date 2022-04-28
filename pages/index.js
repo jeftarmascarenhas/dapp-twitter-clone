@@ -4,12 +4,8 @@ import Header from "../components/header/header";
 import TopContent from "../components/top-content/top-content";
 import TweetEditable from "../components/tweet-editable/tweet-editable";
 import Twitters from "../components/twitters/twitters";
-import { useMetaMask } from "../hooks/useWallet";
-import { useTwitters } from "../hooks/useTwitters";
 
 export default function Home() {
-  const { connectMetaMask, isConnected } = useMetaMask();
-  const { twitters, loading } = useTwitters();
   return (
     <div className="home">
       <Head>
@@ -22,12 +18,9 @@ export default function Home() {
         <div className="main-container">
           <div className="main-content">
             <div className="content">
-              <TopContent
-                isConnected={isConnected}
-                connectMetaMask={connectMetaMask}
-              />
+              <TopContent />
               <TweetEditable />
-              <Twitters twitters={twitters} loading={loading} />
+              <Twitters />
             </div>
             <Aside />
           </div>

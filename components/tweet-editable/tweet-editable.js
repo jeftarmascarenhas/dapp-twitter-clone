@@ -1,7 +1,10 @@
 import { useState, useRef } from "react";
 import PreviewImg from "../preview-img/preview-img";
 
-const TweetEditable = () => {
+import { uploadPinata } from "../../utils/uploads";
+
+const TweetEditable = ({ createTweet }) => {
+  const [loading, setLoading] = useState(false);
   const [file, setFile] = useState({});
   const editableRef = useRef();
 
@@ -14,8 +17,25 @@ const TweetEditable = () => {
     setFile({});
   };
 
-  const handleCreateTweet = () => {
-    console.log(editableRef.current.innerText);
+  const handleCreateTweet = async () => {
+    try {
+      setLoading(true);
+      const { data } = await uploadPinata(file);
+      console.log(data);
+      const params = {
+        text: editableRef.current.innerText,
+        authorName: "Jeftar M",
+        imageHash: data.IpfsHash,
+      };
+
+      createTweet(params);
+      editableRef.current.innerText = "";
+      handleImageClose();
+      setLoading(false);
+    } catch (error) {
+      setLoading(false);
+      console.log(error);
+    }
   };
 
   return (
@@ -55,7 +75,11 @@ const TweetEditable = () => {
                 onChange={handleChangeFile}
               />
             </label>
-            <button className="btn-primary" onClick={handleCreateTweet}>
+            <button
+              disabled={loading}
+              className="btn-primary"
+              onClick={handleCreateTweet}
+            >
               Tweet
             </button>
           </div>

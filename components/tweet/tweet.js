@@ -3,9 +3,9 @@ import truncateAddress from "../../utils/truncate-address";
 
 const donation = ["0.01", "0.03", "0.05"];
 
-const Tweet = ({ tweet }) => {
-  const handleTipToAuthor = (donate) => {
-    console(tweet.id, donate);
+const Tweet = ({ tweet, setTipToAuthor }) => {
+  const handleTipToAuthor = (donateValue) => {
+    setTipToAuthor(tweet.id, donateValue);
   };
 
   return (

@@ -8,8 +8,9 @@ import { useMetaMask } from "../hooks/useWallet";
 import { useTwitters } from "../hooks/useTwitters";
 
 export default function Home() {
-  const { connectMetaMask, isConnected } = useMetaMask();
-  const { twitters, loading } = useTwitters();
+  const { connectMetaMask, isConnected, currentAccount } = useMetaMask();
+  const { twitters, loading, createTweet, setTipToAuthor } =
+    useTwitters(currentAccount);
   return (
     <div className="home">
       <Head>
@@ -26,8 +27,12 @@ export default function Home() {
                 isConnected={isConnected}
                 connectMetaMask={connectMetaMask}
               />
-              <TweetEditable />
-              <Twitters twitters={twitters} loading={loading} />
+              <TweetEditable createTweet={createTweet} />
+              <Twitters
+                twitters={twitters}
+                loading={loading}
+                setTipToAuthor={setTipToAuthor}
+              />
             </div>
             <Aside />
           </div>

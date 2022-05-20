@@ -58,7 +58,7 @@
   background-color: rgba(0, 0, 0, 0.2);
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1140px) {
   .header {
     display: flex;
   }

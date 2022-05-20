@@ -23,33 +23,41 @@ function Home() {
   } = useContext(TwitterContext);
 
   return (
-    <div className="home">
-      <Head>
-        <title>Twitter Dapp</title>
-        <meta name="description" content="Twitter decentralized with web3.js" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <Header />
-      <main className="main">
-        <div className="main-container">
-          <div className="main-content">
-            <div className="content">
-              <TopContent
-                isConnected={isConnected}
-                connectMetaMask={connectMetaMask}
-              />
-              <TweetEditable createTweet={createTweet} />
-              <Twitters
-                twitters={twitters}
-                loading={loading}
-                setTipToAuthor={setTipToAuthor}
-              />
+    <>
+      <div className="mobile-warning">
+        This Dapp can only works on Rinkeby Network
+      </div>
+      <div className="home">
+        <Head>
+          <title>Twitter Dapp</title>
+          <meta
+            name="description"
+            content="Twitter decentralized with web3.js"
+          />
+          <link rel="icon" href="/favicon.ico" />
+        </Head>
+        <Header />
+        <main className="main">
+          <div className="main-container">
+            <div className="main-content">
+              <div className="content">
+                <TopContent
+                  isConnected={isConnected}
+                  connectMetaMask={connectMetaMask}
+                />
+                <TweetEditable createTweet={createTweet} />
+                <Twitters
+                  twitters={twitters}
+                  loading={loading}
+                  setTipToAuthor={setTipToAuthor}
+                />
+              </div>
+              <Aside />
             </div>
-            <Aside />
           </div>
-        </div>
-      </main>
-    </div>
+        </main>
+      </div>
+    </>
   );
 }
 

@@ -80,6 +80,17 @@
   justify-content: space-between;
 }
 
+.mobile-warning {
+  background-color: rgb(22, 24, 28);
+  color: rgb(240, 29, 110);
+  padding: 8px;
+  font-size: 14px;
+  text-align: center;
+  box-shadow: inset 0px 3px 10px rgba(169, 20, 77, 0.45);
+  position: relative;
+  z-index: 2;
+}
+
 @media screen and (min-width: 1140px) {
   .main {
     width: 990px;

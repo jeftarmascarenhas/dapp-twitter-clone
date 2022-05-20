@@ -16,20 +16,6 @@ export const useTwitters = (currentAccount) => {
   const getTwitters = useCallback(async () => {
     try {
       setLoading(true);
-      // const twittersList = [];
-      // const tweetCount = await contract.methods.tweetCount().call();
-
-      // for (const i = 1; i <= tweetCount; i++) {
-      //   const data = await contract.methods.twitters(i).call();
-      //   twittersList.push({
-      //     id: data.id,
-      //     author: data.author,
-      //     authorName: data.authorName,
-      //     authorAddress: data.author,
-      //     image: data.image,
-      //     text: data.text,
-      //   });
-      // }
 
       const data = await contract.methods.fetchAllTwitters().call();
       const twittersList = data.map((tweet) => ({
@@ -60,8 +46,10 @@ export const useTwitters = (currentAccount) => {
       getTwitters();
     } catch (error) {
       console.log(error);
+      throw error;
     }
   };
+
   const setTipToAuthor = async (id, value) => {
     try {
       const valeuToWei = Web3.utils.toWei(value, "ether");

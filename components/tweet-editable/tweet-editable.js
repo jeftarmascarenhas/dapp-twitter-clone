@@ -8,6 +8,8 @@ const TweetEditable = ({ createTweet }) => {
   const [file, setFile] = useState({});
   const editableRef = useRef();
 
+  console.log("CALLL");
+
   const handleChangeFile = (event) => {
     const fileUploaded = event.target.files[0];
     setFile(fileUploaded);
@@ -20,19 +22,23 @@ const TweetEditable = ({ createTweet }) => {
   const handleCreateTweet = async () => {
     try {
       setLoading(true);
-      const { data } = await uploadPinata(file);
-      console.log(data);
+      let imageHash = "";
+      if (file.name) {
+        const { data } = await uploadPinata(file);
+        data.IpfsHash;
+      }
       const params = {
         text: editableRef.current.innerText,
-        authorName: "Jeftar M",
-        imageHash: data.IpfsHash,
+        authorName: "Anonymous",
+        imageHash,
       };
 
-      createTweet(params);
+      await createTweet(params);
       editableRef.current.innerText = "";
       handleImageClose();
       setLoading(false);
     } catch (error) {
+      alert(error.message);
       setLoading(false);
       console.log(error);
     }
@@ -41,10 +47,7 @@ const TweetEditable = ({ createTweet }) => {
   return (
     <div className="content-space flex-base-column mt">
       <div className="flex-base-row">
-        <img
-          src="https://pbs.twimg.com/profile_images/818775935616974848/nqRfHMIl_x96.jpg"
-          className="avatar"
-        />
+        <img src="https://i.pravatar.cc/300" className="avatar" />
         <div className="flex-base-column flex-1">
           <div
             ref={editableRef}

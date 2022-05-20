@@ -10,7 +10,12 @@ const Twitters = ({ twitters = [], loading, setTipToAuthor }) => {
       {!!twitters.length &&
         !loading &&
         twitters.map((tweet) => (
-          <Tweet key={tweet.id} tweet={tweet} setTipToAuthor={setTipToAuthor} />
+          <Tweet
+            key={tweet.id}
+            tweet={tweet}
+            setTipToAuthor={setTipToAuthor}
+            avatar={`https://i.pravatar.cc/300?u=${tweet.authorAddress}`}
+          />
         ))}
     </div>
   );

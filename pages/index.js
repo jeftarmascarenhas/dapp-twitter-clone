@@ -6,11 +6,22 @@ import TweetEditable from "../components/tweet-editable/tweet-editable";
 import Twitters from "../components/twitters/twitters";
 import { useMetaMask } from "../hooks/useWallet";
 import { useTwitters } from "../hooks/useTwitters";
+import { TwitterContext } from "../contexts/twitter-provider";
+import { useContext } from "react";
 
-export default function Home() {
-  const { connectMetaMask, isConnected, currentAccount } = useMetaMask();
-  const { twitters, loading, createTweet, setTipToAuthor } =
-    useTwitters(currentAccount);
+let teste = 1;
+
+function Home() {
+  const {
+    connectMetaMask,
+    createTweet,
+    currentAccount,
+    isConnected,
+    loading,
+    setTipToAuthor,
+    twitters,
+  } = useContext(TwitterContext);
+
   return (
     <div className="home">
       <Head>
@@ -41,3 +52,5 @@ export default function Home() {
     </div>
   );
 }
+
+export default Home;

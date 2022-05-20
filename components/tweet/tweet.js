@@ -3,7 +3,7 @@ import truncateAddress from "../../utils/truncate-address";
 
 const donation = ["0.01", "0.03", "0.05"];
 
-const Tweet = ({ tweet, setTipToAuthor }) => {
+const Tweet = ({ tweet, setTipToAuthor, avatar }) => {
   const handleTipToAuthor = (donateValue) => {
     setTipToAuthor(tweet.id, donateValue);
   };
@@ -12,14 +12,13 @@ const Tweet = ({ tweet, setTipToAuthor }) => {
     <>
       <div className="divide" />
       <div className="tweet">
-        <img
-          className="tweet-author-avatar"
-          src="https://pbs.twimg.com/profile_images/1434912499669815296/c1bAgK4e_400x400.png"
-        />
+        <img className="tweet-author-avatar" src={avatar} />
         <div>
           <div className="tweet-author">
-            <span className="author-name">{tweet.authorName}</span>
-            <span className="author-address text-ellipsis">
+            <span
+              className="author-address text-ellipsis"
+              title={tweet.authorAddress}
+            >
               {truncateAddress(tweet.authorAddress)}
             </span>
           </div>

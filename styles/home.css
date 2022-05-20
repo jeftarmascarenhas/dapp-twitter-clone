@@ -6,7 +6,6 @@
 }
 
 .main {
-  width: 990px;
   height: 100%;
   flex-shrink: 1;
   flex-grow: 1;
@@ -17,7 +16,6 @@
 }
 
 .main-container {
-  width: 990px;
   flex-shrink: 1;
   flex-grow: 1;
   display: flex;
@@ -27,7 +25,7 @@
 
 .main-content {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: stretch;
   flex-grow: 1;
   width: 100%;
@@ -80,4 +78,15 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+@media screen and (min-width: 1140px) {
+  .main {
+    width: 990px;
+  }
+
+  .main-container {
+    width: 990px;
+    justify-content: space-between;
+  }
 }

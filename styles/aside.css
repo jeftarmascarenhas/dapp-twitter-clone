@@ -1,12 +1,14 @@
 .aside {
-  width: 350px;
+  width: 100%;
+  max-width: 350px;
   height: 100%;
-  display: flex;
+  display: none;
   flex-direction: column;
 }
 
 .aside-box {
   background-color: rgb(22, 24, 28);
+  color: rgba(29, 155, 240);
   border-radius: 16px;
   margin: 16px 0;
   padding: 16px;
@@ -15,4 +17,10 @@
 .aside h2 {
   padding: 0;
   margin: 0;
+}
+
+@media screen and (min-width: 1140px) {
+  .aside {
+    display: flex;
+  }
 }

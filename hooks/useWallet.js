@@ -28,7 +28,6 @@ export const useMetaMask = () => {
   };
 
   useEffect(() => {
-    if (accounts && accounts.length) return;
     const checkConnect = async () => {
       try {
         const accountsData = await window.ethereum.request({
@@ -45,7 +44,7 @@ export const useMetaMask = () => {
       }
     };
     checkConnect();
-  }, [accounts]);
+  }, []);
 
   useEffect(() => {
     if (isMetaMaskInstalled()) {

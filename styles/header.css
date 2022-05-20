@@ -1,6 +1,6 @@
 .header {
   flex-grow: 1;
-  display: flex;
+  display: none;
   flex-direction: column;
   align-items: flex-end;
   flex-basis: auto;
@@ -8,7 +8,8 @@
 }
 
 .header-content {
-  width: 294px;
+  width: 100%;
+  max-width: 294px;
   padding-left: 12px;
   padding-right: 12px;
   height: 100%;
@@ -55,4 +56,10 @@
 
 .logo-content:hover {
   background-color: rgba(0, 0, 0, 0.2);
+}
+
+@media screen and (min-width: 1024px) {
+  .header {
+    display: flex;
+  }
 }
